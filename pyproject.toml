@@ -1,0 +1,156 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project]
+name = "ml-examples"
+authors = [{ name="Christian O'Leary", email="christian.oleary@mtu.ie" }]
+description = "Machine learning examples"
+readme = "README.md"
+dynamic = ["version", "dependencies"]
+# requires-python = "==3.10.*"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+# Documentation
+docs = [
+    "Sphinx==5.3.0",            # Documentation generator
+    "sphinx_mdinclude==0.6.0",  # Markdown include for Sphinx
+    "sphinx-rtd-theme==2.0.0",  # Read the Docs theme
+    "docxbuilder==1.2.0",       # Word document builder
+    "docxbuilder[math]",        # Math support
+]
+# Unit tests
+tests = [
+    "setuptools",
+    "coverage==7.4.4",    # Code coverage
+    "pytest==8.2.2",      # Testing
+    "pytest-cov==5.0.0",  # Pytest with Coverage
+    "pre-commit==3.7.1",  # Git hooks
+]
+
+# All dependencies except SCA
+all = ["ml[docs,tests]"]
+
+# [project.scripts]
+
+[project.urls]
+Homepage = "https://github.com/christian-oleary/ml-examples"
+Issues = "https://github.com/christian-oleary/ml-examples/issues"
+
+################################################################################
+# BANDIT
+[tool.bandit]
+exclude = ["archived", "docs", "tests"]
+exclude_dirs = ["archived", "docs", "tests"]
+
+[tool.bandit.scripts]
+exclude = ["*_test.py", "*test_*"]
+
+################################################################################
+# BLACK
+[tool.black]
+skip-string-normalization = true
+line-length = 100
+target-version = ['py39', 'py310', 'py311', 'py312']
+
+################################################################################
+# COVERAGE
+[tool.coverage.run]
+branch = true
+relative_files = true
+
+[tool.coverage.report]
+exclude_also = [ # Regexes for lines to exclude from consideration
+    "def __repr__", "if self\\.debug",  # Don't complain about missing debug-only code
+    "raise AssertionError", "raise NotImplementedError",  # Don't complain if tests don't hit defensive assertion code
+    "if 0:", "if __name__ == .__main__.:",  # Don't complain if non-runnable code isn't run
+    "@(abc\\.)?abstractmethod",  # Don't complain about abstract methods, they aren't run
+]
+ignore_errors = true
+show_missing = true
+fail_under = 20
+
+[tool.coverage.html]
+directory = "./docs/coverage_html_report"
+
+################################################################################
+# MYPY
+[tool.mypy]
+exclude = '^(archived/|docs/|tests/|ignore/)'
+explicit_package_bases = true
+ignore_missing_imports = true
+namespace_packages = true
+
+################################################################################
+# PYDOCSTYLE
+[tool.pydocstyle]
+inherit = false
+ignore = [
+    "D107",  # Missing docstring in __init__
+    "D203",  # Blank line before class docstring
+    "D213",  # Multi-line docstring summary should start at the second line
+    "D400",  # First line should end in period
+    "D401",  # First line should be in imperative mood
+    "D415",  # First line should end with period/question mark/exclamation point
+]
+match = ".*\\.py"
+
+################################################################################
+# PYLINT
+[tool.pylint.'MASTER']
+fail-under = 8.0
+disable = [
+    "C0103", # invalid-name
+    "E0110", # abstract-class-instantiated
+    "E0401", # import-error
+    "E0611", # no-name-in-module
+    "R0917", # too-few-public-methods
+    "W0201", # attribute-defined-outside-init
+    "W1203", # logging-fstring-interpolation
+]
+ignore = ["tests"]
+ignore-comments = false
+ignore-docstrings = false
+ignore-imports = false
+ignored-classes = ["optparse.Values", "thread._local", "_thread._local"]
+ignored-modules=["numpy.random", "sklearn.datasets"]
+ignore-on-opaque-inference=true
+# Warn about missing members when the owner of the attribute is inferred to be None
+ignore-none=true
+max-args=10
+max-positional-arguments=10
+max-attributes=10
+max-line-length=120
+max-locals=16
+# min-similarity-lines=3
+
+################################################################################
+# PYTEST
+[tool.pytest.ini_options]
+addopts = "-ra --durations=10 --cov --cov-branch --cov-report xml:coverage.xml --junitxml=report.xml --basetemp=tests/tmp"
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+console_output_style = "progress"
+filterwarnings = "ignore::DeprecationWarning"
+testpaths = [ "tests" ]
+ignore = ["**/archived/*", "docs"]
+
+################################################################################
+# RUFF
+[tool.ruff]
+exclude = ["**/archived/*", "docs"]
+output-format = "full"
+
+[tool.ruff.format]
+quote-style = "single"
+
+################################################################################
