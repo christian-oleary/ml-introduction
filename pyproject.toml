@@ -120,7 +120,7 @@ ignore-comments = false
 ignore-docstrings = false
 ignore-imports = false
 ignored-classes = ["optparse.Values", "thread._local", "_thread._local"]
-ignored-modules=["numpy.random", "sklearn.datasets"]
+ignored-modules = ["numpy.random", "sklearn.datasets"]
 ignore-on-opaque-inference=true
 # Warn about missing members when the owner of the attribute is inferred to be None
 ignore-none=true
