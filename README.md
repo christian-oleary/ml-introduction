@@ -5,9 +5,9 @@ This repository contains code examples to introduce students to the absolute bas
 
 ## Overview
 
-This tutorial consists of three progressive lessons:
+This tutorial consists of three progressive lessons presented as Jupyter notebooks:
 
-1. **Python Basics** (`01_python_basics.py`) - Learn fundamental Python concepts including:
+1. **Python Basics** (`01_python_basics.ipynb`) - Learn fundamental Python concepts including:
    - Variables and data types
    - Lists and dictionaries
    - Control flow (if/else statements)
@@ -15,7 +15,7 @@ This tutorial consists of three progressive lessons:
    - Functions
    - List comprehensions
 
-2. **pandas Basics** (`02_pandas_basics.py`) - Learn data manipulation with pandas:
+2. **pandas Basics** (`02_pandas_basics.ipynb`) - Learn data manipulation with pandas:
    - Creating DataFrames
    - Viewing and exploring data
    - Selecting and filtering data
@@ -24,7 +24,7 @@ This tutorial consists of three progressive lessons:
    - Handling missing data
    - Reading and writing CSV files
 
-3. **scikit-learn Basics** (`03_sklearn_basics.py`) - Introduction to machine learning:
+3. **scikit-learn Basics** (`03_sklearn_basics.ipynb`) - Introduction to machine learning:
    - Linear regression for predicting continuous values
    - Classification with decision trees
    - Train/test split
@@ -47,15 +47,18 @@ pip install -r requirements.txt
 
 ## Usage
 
-Run each example script in order:
+Open and run each Jupyter notebook in order:
 
 ```bash
-python 01_python_basics.py
-python 02_pandas_basics.py
-python 03_sklearn_basics.py
+jupyter notebook
 ```
 
-Each script demonstrates key concepts with practical examples and prints results to the console.
+Then open the notebooks in your browser:
+- `01_python_basics.ipynb`
+- `02_pandas_basics.ipynb`
+- `03_sklearn_basics.ipynb`
+
+Each notebook is organized into sections with explanations and code cells that you can run interactively.
 
 ## Requirements
 
@@ -63,17 +66,18 @@ Each script demonstrates key concepts with practical examples and prints results
 - numpy
 - pandas
 - scikit-learn
+- jupyter
 
 See `requirements.txt` for specific version requirements.
 
 ## Learning Path
 
-We recommend following the examples in order:
+We recommend following the notebooks in order:
 1. Start with Python basics if you're new to programming
 2. Move to pandas to learn data manipulation
 3. Finally, explore scikit-learn for machine learning concepts
 
-Each script is self-contained and can be run independently, but they build on concepts from previous lessons.
+Each notebook is self-contained and can be run independently, but they build on concepts from previous lessons.
 
 ## License
 
