@@ -80,21 +80,16 @@ Then open the notebooks in your browser:
 
 Each notebook is organized into sections with explanations and code cells that you can run interactively.
 
-## Learning Path
-
-We recommend following the notebooks in order:
-
-1. Start with Python basics if you're new to programming
-2. Move to pandas to learn data manipulation
-3. Finally, explore scikit-learn for machine learning concepts
-
-Each notebook is self-contained and can be run independently, but they build on concepts from previous lessons.
-
 ## For Developers
 
+- Follow [setup instructions](#setup-for-running-code-on-your-device).
+- To install additional dependencies and pre-commit hook:
+
 ```bash
-conda install pre-commit
-pre-commit install
+conda activate ml         # Activate environment
+pip install -e .[all]     # Extra dependencies
+conda install pre-commit  # Install pre-commit
+pre-commit install        # Add hook for pre-commit
 ```
 
 ## License
