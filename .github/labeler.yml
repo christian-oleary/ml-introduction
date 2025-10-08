@@ -1,0 +1,29 @@
+# This is a configuration file for the GitHub Action "Labeler"
+# It automatically labels pull requests based on the files that were changed.
+
+"ci":
+- .pre-commit-config.yaml
+- .github/workflows/**/*.yml
+- .github/labeler.yml
+- .github/dependabot.yml
+
+"documentation":
+- docs/**/*.md
+
+"notebooks":
+- ml-examples/**/*.ipynb
+
+"python":
+- ml-examples/**/*.py
+
+"repo":
+- .gitignore
+- README.md
+- CONTRIBUTING.md
+- LICENSE
+- setup.py
+- pyproject.toml
+- requirements.txt
+
+"tests":
+- tests/**/*.py
