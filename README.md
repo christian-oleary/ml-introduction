@@ -10,30 +10,22 @@ You can [download this code from here](https://github.com/christian-oleary/ml-in
 
 This guide consists of three progressive lessons presented as Jupyter notebooks:
 
-1. **Python Basics** (`01_python_basics.ipynb`) - Learn fundamental Python concepts including:
-   - Variables and data types
-   - Lists and dictionaries
-   - Control flow (if/else statements)
-   - Loops (for and while)
-   - Functions
-   - List comprehensions
+1. **Python basics** (`01_python_basics.ipynb`) - Learn fundamental Python concepts
+2. **Handling data with pandas** (`02_pandas_basics.ipynb`) - Learn data manipulation with the ***pandas*** library
+3. **Train an ML model with scikit-learn** (`03_sklearn_basics.ipynb`) - Introduction to machine learning
 
-2. **pandas Basics** (`02_pandas_basics.ipynb`) - Learn data manipulation with pandas:
-   - Creating DataFrames
-   - Viewing and exploring data
-   - Selecting and filtering data
-   - Adding and modifying columns
-   - Sorting and aggregation
-   - Handling missing data
-   - Reading and writing CSV files
+### Online Guides:
 
-3. **scikit-learn Basics** (`03_sklearn_basics.ipynb`) - Introduction to machine learning:
-   - Linear regression for predicting continuous values
-   - Classification with decision trees
-   - Train/test split
-   - Model evaluation (accuracy, RMSE)
-   - Feature importance
-   - Real-world example: Student performance prediction
+1. Python:
+   - [Python Tutorial for Beginners](https://www.youtube.com/watch?v=YYXdXT2l-Gg&list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7) on YouTube
+   - [Python for Everybody (PY4E)](https://www.py4e.com/lessons) materials
+   - [More links from official documentation](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers)
+2. Pandas:
+   - [Pandas Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS)
+   - [Website](https://pandas.pydata.org/getting_started.html)
+3. Scikit-learn:
+   - [Website](https://scikit-learn.org/stable/getting_started.html)
+   - [Free Course](https://inria.github.io/scikit-learn-mooc/)
 
 ## Where Can I Run This Code?
 
@@ -88,15 +80,17 @@ Then open the notebooks in your browser:
 
 Each notebook is organized into sections with explanations and code cells that you can run interactively.
 
-## Learning Path
+## For Developers
 
-We recommend following the notebooks in order:
+- Follow [setup instructions](#setup-for-running-code-on-your-device).
+- To install additional dependencies and pre-commit hook:
 
-1. Start with Python basics if you're new to programming
-2. Move to pandas to learn data manipulation
-3. Finally, explore scikit-learn for machine learning concepts
-
-Each notebook is self-contained and can be run independently, but they build on concepts from previous lessons.
+```bash
+conda activate ml         # Activate environment
+pip install -e .[all]     # Extra dependencies
+conda install pre-commit  # Install pre-commit
+pre-commit install        # Add hook for pre-commit
+```
 
 ## License
 

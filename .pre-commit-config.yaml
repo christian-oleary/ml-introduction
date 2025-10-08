@@ -1,6 +1,13 @@
 # See https://pre-commit.com/hooks.html for more hooks
 
 repos:
+    -   repo: https://github.com/kynan/nbstripout
+        rev: 0.8.1
+        hooks:
+        -   id: nbstripout
+            # args: ['--extra-keys=metadata.celltoolbar cell.metadata.heading_collapsed']
+            # --drop-empty-cells
+
     -   repo: https://github.com/psf/black
         rev: 24.4.2
         hooks:
